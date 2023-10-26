@@ -1,0 +1,38 @@
+body{
+    background: #FFD0D0;
+    /* background-image: url(bg2.avif); */
+    
+}
+
+#resume-template{
+    display: none;
+}
+.card-heading{
+    background-color: #FFECEC;
+}
+
+
+.myName{
+    font-weight: 400;
+}
+
+a:link{
+    text-decoration: none;
+}
+
+.links{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.icon-btn{
+    border-radius: 50%;
+    margin: 2px;
+}
+
+.icons-text{
+    float: right;
+    margin: 8px 2px;
+}

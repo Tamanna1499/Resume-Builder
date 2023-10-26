@@ -1,0 +1,28 @@
+@page {
+    size: portrait;
+}
+@media print{
+
+    .myName{
+        font-weight: 400;
+    }
+    .col-md-4{
+        width: 40%;
+    }
+
+    .col-md-8{
+        display: flex;
+        width: 60%;
+        flex-direction: column;
+        justify-content: flex-end;
+
+    }
+
+    .avoid-break{
+        page-break-inside: avoid;
+    }
+
+    #downloadResumeBtn{
+        display: none;
+    }
+}

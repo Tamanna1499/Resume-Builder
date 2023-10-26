@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous" media="all">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
+    <!-- <link href='../bootstrap.min.css' rel='stylesheet' media='all'> -->
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="print.css" media="all">
+    
+    <title>Resume Builder</title>
+</head>
+<body>
+    <header class="text-center my-3">
+        <h1  id="title">Resume Builder</h1>
+    </header>
+    <main>
+        <div class="container" id="resume-form">
+            <div class="row mt-5">
+                <!-- Personal Information -->
+                <div class="col-md-6">
+                    <h3>Personal Information</h3>
+                    <!-- Name -->
+                    <div class="form-group row">
+                        <div class="col-md-6">
+                            <label for="first-name">First Name</label>
+                            <input type="text" id="first-name" placeholder="Enter your first name" class="form-control" required>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="last-name">Last Name</label>
+                            <input type="text" id="last-name" placeholder="Enter your last name" class="form-control">
+                        </div>
+                    </div>
+
+                    <!-- Phone -->
+                    <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <input type="text" id="phone" placeholder="Enter your phone number" class="form-control" required>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" placeholder="Enter your email id" class="form-control" required>
+                    </div>
+                    
+                    <!-- Address -->
+                    <div class="form-group row">
+                        <div class="col-md-4">
+                            <label for="city">City</label>
+                            <input type="text" id="city" placeholder="Enter city name" class="form-control" required>
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="country">Country</label>
+                            <input type="text" id="country" placeholder="Enter country name" class="form-control" required>
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="pin-code">PIN Code</label>
+                            <input type="number" id="pin-code" placeholder="Enter PIN Code" class="form-control" required>
+                        </div>
+                    </div>
+
+                    <!-- Important Links -->
+                    <div class="col-md-6 my-3">
+                        <h3>Social Links</h3>
+                        <!-- LinkedIn -->
+                        <div class="form-group">
+                            <label for="linkedIn">LinkedIn <i class="bi bi-linkedin"></i></label>
+                            <input type="text" id="linkedIn" placeholder="" class="form-control">
+                        </div>
+
+                        <!-- GitHub -->
+                        <div class="form-group">
+                            <label for="gitHub">GitHub <i class="bi bi-github"></i></label>
+                            <input type="text" id="gitHub" placeholder="" class="form-control">
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <!-- Academic Information -->
+                <div class="col-md-6">
+                    <h3>Academics</h3>
+                    <!-- Education -->
+                    <div class="form-group" id="edu">
+                        <label for="eduField">Education</label>
+                        <textarea id="eduField" cols="10" rows="3" class="form-control education"></textarea>
+                        <div class="container text-center mt-2" id="eduButton">
+                            <button onclick="addNewEduButton()" class="btn btn-dark btn-md">ADD</button>
+                        </div>
+                    </div>
+
+                    <!-- Work Experiences OR Achievements-->
+                    <div class="form-group" id="we">
+                        <label for="work-exp">Achievements</label>
+                        <textarea id="work-exp" cols="10" rows="3" class="form-control workExp"></textarea>
+                        <div class="container text-center mt-2" id="workExpButton">
+                            <button onclick="addNewWeButton()" class="btn btn-dark btn-md">ADD</button>
+                        </div>
+                    </div>
+
+                    <!-- Skills -->
+                    <div class="form-group" id="sk">
+                        <label for="skillsField">Skills</label>
+                        <textarea id="skillsField" cols="10" rows="1" class="form-control skills"></textarea>
+                        <div class="container text-center mt-2" id="skillsButton">
+                            <button onclick="addNewSkillsButton()" class="btn btn-dark btn-md">ADD</button>
+                        </div>
+                    </div>
+
+                    <!-- Projects -->
+                    <div class="form-group" id="proj">
+                        <label for="projectField">Projects</label>
+                        <textarea id="projectField" cols="10" rows="3" class="form-control projects"></textarea>
+                        <div class="container text-center mt-2" id="projectsButton">
+                            <button onclick="addNewProjectsButton()" class="btn btn-dark btn-md">ADD</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BUTTON - Generate Resume -->
+            <div class="container text-center my-5">
+                <button onclick="generateResume()" class="btn btn-dark btn-lg">Generate Resume</button>
+            </div>
+        </div>
+
+        <!-- Resume Template -->
+        <div class="container mt-4" id="resume-template">
+            <div class="row">
+                
+                <!-- Name(Heading) -->
+                <div class="container">
+                    <h1 class="text-center display-2 myName" id="nameTemp">TAMANNA</h1>
+                </div>
+
+                <div class="container links">
+                    <p><i class="bi bi-telephone-fill"></i> <a href="#" class="link-dark" id="phoneTemp">+91 9988776655</a></p>
+                    <p><i class="bi bi-envelope-fill"></i> <a href="#" class="link-dark" id="emailTemp">tam123@gmail.com</a></p>
+                    <p><i class="bi bi-linkedin"></i> <a href="#" class="link-dark" id="linkedTemp">tam123@linkedIn.com</a></p>
+                    <p><i class="bi bi-github"></i> <a href="#" class="link-dark" id="gitTemp">tam123@github.com</a></p>
+                </div>
+                <hr>
+
+                <!-- Column1 -->
+                <div class="col-md-4 py-5">
+                    
+                    <!-- Education -->
+                    <div class="card mt-4 avoid-break">
+                        <div class="card-header card-heading">
+                            <h3>Education</h3>
+                        </div>
+                        <div class="card-body">
+                            
+                            <p id="eduTemp">
+                                B.Sc. Hons Mathematics<br>
+                                spmc<br>
+                                2017-2020<br>
+                            </p>
+
+                        </div>
+                    </div>
+
+                    <!-- Skills -->
+                    <div class="card mt-4 avoid-break">
+                        <div class="card-header card-heading">
+                            <h3>Skills</h3>
+                        </div>
+                        <div class="card-body">
+                            <p id="skillsTemp">
+                                HTML, CSS, JS
+                            </p>
+
+                            <!-- <p>
+                                C++, Python
+                            </p> -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Column2 -->
+                <div class="col-md-8 py-5">
+                    
+                    <!-- Work Experiences OR Achievements-->
+                    <div class="card mt-4 avoid-break">
+                        <div class="card-header card-heading">
+                            <h3>Achievements</h3>
+                        </div>
+                        <div class="card-body">
+                            <p id="weTemp">
+                                HTML, CSS, JS
+                            </p>
+
+                            <!-- <p>
+                                C++, Python
+                            </p> -->
+                        </div>
+                    </div>
+
+                    <!-- Projects -->
+                    <div class="card mt-4 avoid-break">
+                        <div class="card-header card-heading">
+                            <h3>Projects</h3>
+                        </div>
+                        <div class="card-body">
+                            <p id="projectTemp">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo magnam minima asperiores amet ducimus corrupti nemo omnis facere excepturi praesentium!
+
+                            </p>
+
+                            <!-- <p>
+                               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem odit velit similique non possimus nisi veniam consequatur asperiores iure iste hic aperiam voluptatibus dolorem quam commodi provident, natus tempore esse, neque harum nam suscipit assumenda omnis nulla. Dolor unde enim sunt impedit cum inventore sapiente, provident officiis vero, ipsa dolores.
+                            </p> -->
+                        </div>
+                    </div>
+
+                </div>
+                <!-- BUTTON - Download Resume -->
+                <div class="container mt-3 text-center">
+                    <button onclick="downloadResume()" class="btn btn-dark btn-lg" id="downloadResumeBtn">DOWNLOAD</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+</body>
+</html>
